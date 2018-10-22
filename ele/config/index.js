@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+    	'/restapi': {  //使用"/restapi"来代替"https://h5.ele.me/restapi" 
+		    target: 'https://h5.ele.me/restapi', //源地址 
+		    changeOrigin: true, //改变源 
+		    secure: false,
+		    pathRewrite: { 
+      		'^/restapi': '/' //路径重写 
+      	}
+		  },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
